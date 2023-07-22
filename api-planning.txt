@@ -1,0 +1,116 @@
+25. Merancanakan API Endpoint sebelum memulai project:
+
+                               
+                                STANDAR API :
+{root.api}/{version}/{grouping}/{endpoint} (ini bisa info ke client bisa dirubah)
+Sample :
+http://mern-api.alwindev.com/v1/auth/login
+
+
+Standar Status Response :
+200 - OK                                --> Call API Succes 
+201 - CREATED                           --> Post Success 
+400 - BAD REQUEST                       --> Error on client Side (Bisa input yang salah dll)
+401 - UNAUTHORIZED                      --> User not Autherized to the requset.
+403 - FORBIDDEN                         --> User not allowed to access.
+404 - NOT FOUND                         --> Request Endpoint Not Found.
+500 - INTERNAL SERVER ERROR             --> Error on server side.
+502 - BAD GATEWAY                       --> Invalid Response From Antoher Request.
+
+
+
+
+
+Group : Authentication
+        1. Register
+        {root.api}/{version}/auth/register
+    req: 
+    {
+        "name" : "Testing",
+        "email": "testing@email.com",
+        "password" : "123123"
+
+    },
+
+    res: 
+    {
+        message : "Register Secces",
+        "data" : 
+        {
+            "id" : 1,
+            "name" : "Testing",
+            "email": "testing@email.com",
+            "password" : "123123"
+
+        }
+    },
+
+    //status pada client:
+    err-response :
+    400 -> input yang you masukan tidak valid
+
+
+
+
+        2. Login :
+         {root.api}/{version}/auth/login
+        
+
+Group : blog
+        1. Creat Blog Post
+        2. Get Blog Post
+        3. Update Blog Post
+        4. Delete Blog Post
+
+
+
+
+next :
+1. Membuat Dummy Endpoint Response dan membuat Postman collection.
+    a. 
+
+
+2.Mengganti data dummy di home page dengan Response API (Data static menjadi data API)
+    a. ubah codingan di pages home index.js
+    b. ubah di Component Molecul BlogItem index.js
+
+3. Set Up Management dengan Menggunakan Redux.
+    a. State Management Secara Global (bisa Menggunakan Redux dan Context bisa)
+    Kita Menggunakan Redux :
+    1. npm install redux
+    2. npm install  react-redux
+    setup folder redux :
+     membuat file : store.js untuk membuat state secara global
+
+4. Merubah Value dari state Global Redux.
+    a. membuat action_type
+    b.membuat set timeout dan merubah state local menjadi global di index.js/home
+
+5. Memahami Combaine Reducer(menggunakan Reducer lebih dari satu);
+    a.setting reducer local menjadi Global
+    b. membuat file2 khusus reducer agar lebih rapih
+    c.
+
+6. Memahami Action Creator dan Async Store dengan redux thunk
+    a. membuat folder action di redux 
+    b. menambahkan libary tambahan  :
+        1. npm i redux-thunk (untuk menerima sifat Async = Async itu fungsi yang memiliki delay)
+        2. setelah insatll redux-thunk ->  store.js : (applyMiddleware ini setelah kita insatll redux-thunk)
+    c. a. Merapih action yang ada di folder home/index.js ke dalam folder redux/action
+
+7. Implementasi Pagination di halaman homepage.
+   a. Merubah url menjadi dinamis yang previous dan next
+    
+8. Implementasi menambahkan Postingan baru dan Upload Image(mengirimkan pengiriman data ke rest API)
+    A. Mengirimkan pengiriman data dari creat blog
+9. Refactor menambahkan Postingan Baru dan menambahkan Redux.
+    a.
+10. Integrasi Detail Blog Post dengan unique ID (halaman view detail)
+    pindah ke view detail menggunakan fetching API
+
+11. Implementasi Update Blog Post
+    1. menambahkan Update Delete
+    2. menambahkan tombol edit dan delete di (blogItem)
+
+12. Implementasi Delete Blog Post.
+    1. npm i react-confirm-alert(untuk popup tombol delete)
